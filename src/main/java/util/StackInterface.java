@@ -21,13 +21,13 @@ public interface StackInterface<AnyType> {
     AnyType pop();
 
     /**
-     * Return size of queue
+     * Return size of stack
      * @return
      */
     int size();
 
     /**
-     * Return the value true if queue is empty, else return false
+     * Return the value true if stack is empty, else return false
      * @return
      */
     boolean isEmpty();

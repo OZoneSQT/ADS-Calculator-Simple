@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 
 public class StackLIFO<AnyType> implements StackInterface<AnyType> {
     private ArrayDeque<AnyType> stack;
-    private int  count;
+    private int count;
 
     public StackLIFO() {
     }

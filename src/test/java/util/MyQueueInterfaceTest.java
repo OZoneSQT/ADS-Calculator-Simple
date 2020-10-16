@@ -134,11 +134,21 @@ class MyQueueInterfaceTest {
     }
 
     @Test
-    void first() {
+    void firstOne() {
         // Act
         myQueueInterface.enqueue("Alpha");
         // Assert
         assertTrue(myQueueInterface.dequeue() == "Alpha");
+    }
+
+    @Test
+    void firstMore() {
+        // Act
+        myQueueInterface.enqueue("Alpha");
+        myQueueInterface.enqueue("Beta");
+        myQueueInterface.dequeue();
+        // Assert
+        assertTrue(myQueueInterface.dequeue() == "Beta");
     }
 
     @Test
