@@ -2,13 +2,13 @@ package calculator;
 
 import tokens.Operand;
 import tokens.Token;
-
-import java.util.ArrayList;
+import util.MyQueue;
+import util.MyQueueInterface;
 
 public class Main {
     public static void main(String[] args) {
         Visitor visitor = new Calculator();
-        ArrayList<Token> myTokens = new ArrayList<>();
+        MyQueueInterface<Token> myTokens = new MyQueue<>(10);
 
         Token operand1 = new Operand(4);
         Token operand2 = new Operand(3);
@@ -20,20 +20,22 @@ public class Main {
         Token operand5 = new Operand(5);
         Token operator4  = new Operand('/');
 
-        myTokens.add(operand1);
-        myTokens.add(operand2);
-        myTokens.add(operand3);
-        myTokens.add(operator1);
-        myTokens.add(operator2);
-        myTokens.add(operand4);
-        myTokens.add(operator3);
-        myTokens.add(operand5);
-        myTokens.add(operator4);
+        myTokens.enqueue(operand1);
+        myTokens.enqueue(operand2);
+        myTokens.enqueue(operand3);
+        myTokens.enqueue(operator1);
+        myTokens.enqueue(operator2);
+        myTokens.enqueue(operand4);
+        myTokens.enqueue(operator3);
+        myTokens.enqueue(operand5);
+        myTokens.enqueue(operator4);
 
         for(int i=0;i<myTokens.size();i++) {
-            myTokens.get(i).accept(visitor);
+            myTokens.dequeue().accept(visitor);
         }
+
         System.out.println("result is: " + visitor.peek());
+
     }
 
 }
